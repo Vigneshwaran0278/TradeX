@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TradeX — Stock Trading Simulator</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= AUTH ================= -->
+
+<section id="authScreen" class="auth-screen">
+
+    <div class="auth-card">
+
+        <div class="brand auth-brand">
+            <div class="brand-icon">T</div>
+            <div>
+                <h1>TradeX</h1>
+                <span>Trading Simulator</span>
+            </div>
+        </div>
+
+        <div class="auth-tabs">
+            <button class="auth-tab active" data-auth="login">Login</button>
+            <button class="auth-tab" data-auth="register">Create Account</button>
+        </div>
+
+        <!-- LOGIN -->
+
+        <form id="loginForm" class="auth-form">
+
+            <h2>Welcome back 👋</h2>
+            <p>Login to continue trading.</p>
+
+            <label>Username or Email</label>
+            <input id="loginIdentity"
+                   type="text"
+                   placeholder="Enter username or email"
+                   required>
+
+            <label>Password</label>
+            <input id="loginPassword"
+                   type="password"
+                   placeholder="Enter password"
+                   required>
+
+            <button class="primary-btn" type="submit">
+                Login
+            </button>
+
+            <div id="loginMessage" class="form-message"></div>
+
+        </form>
+
+        <!-- REGISTER -->
+
+        <form id="registerForm" class="auth-form hidden">
+
+            <h2>Create your account 🚀</h2>
+            <p>Start with $100,000 virtual cash.</p>
+
+            <label>Full Name</label>
+            <input id="registerName"
+                   type="text"
+                   placeholder="Your full name"
+                   required>
+
+            <label>Username</label>
+            <input id="registerUsername"
+                   type="text"
+                   placeholder="Choose username"
+                   required>
+
+            <label>Email</label>
+            <input id="registerEmail"
+                   type="email"
+                   placeholder="you@example.com"
+                   required>
+
+            <label>Password</label>
+            <input id="registerPassword"
+                   type="password"
+                   placeholder="Minimum 6 characters"
+                   required>
+
+            <label>Confirm Password</label>
+            <input id="registerConfirm"
+                   type="password"
+                   placeholder="Confirm password"
+                   required>
+
+            <button class="primary-btn" type="submit">
+                Create Account
+            </button>
+
+            <div id="registerMessage" class="form-message"></div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- ================= APP ================= -->
+
+<section id="appScreen" class="app hidden">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">T</div>
+
+            <div>
+                <h1>TradeX</h1>
+                <span>Simulator</span>
+            </div>
+        </div>
+
+        <nav>
+
+            <button class="nav-item active" data-section="dashboard">
+                <span>◈</span>
+                Dashboard
+            </button>
+
+            <button class="nav-item" data-section="markets">
+                <span>📈</span>
+                Markets
+            </button>
+
+            <button class="nav-item" data-section="portfolio">
+                <span>💼</span>
+                Portfolio
+            </button>
+
+            <button class="nav-item" data-section="orders">
+                <span>🧾</span>
+                Orders
+            </button>
+
+            <button class="nav-item" data-section="watchlist">
+                <span>⭐</span>
+                Watchlist
+            </button>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="market-status">
+                <span class="status-dot"></span>
+                Market Simulation
+                <small>LIVE</small>
+            </div>
+
+            <button id="logoutBtn" class="logout-btn">
+                ↪ Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <div>
+                <span class="mobile-menu">☰</span>
+                <h2 id="pageTitle">Dashboard</h2>
+                <p id="welcomeText">Welcome back!</p>
+            </div>
+
+            <div class="top-actions">
+
+                <div class="market-clock">
+                    <span class="status-dot"></span>
+                    MARKET OPEN
+                </div>
+
+                <div class="user-menu">
+
+                    <div id="userAvatar" class="avatar">
+                        U
+                    </div>
+
+                    <div>
+                        <strong id="userName">Trader</strong>
+                        <small id="userEmail">user@email.com</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <section id="dashboardSection" class="page-section">
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <span>Total Portfolio</span>
+                    <strong id="totalPortfolio">$100,000.00</strong>
+                    <small id="portfolioChange">+0.00%</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>Available Cash</span>
+                    <strong id="cashBalance">$100,000.00</strong>
+                    <small>Buying power</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>Invested</span>
+                    <strong id="investedValue">$0.00</strong>
+                    <small>Current positions</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>Total P/L</span>
+                    <strong id="totalProfit">$0.00</strong>
+                    <small id="profitPercent">0.00%</small>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+                <!-- CHART -->
+
+                <div class="panel chart-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h3>Portfolio Performance</h3>
+                            <p>Your portfolio value over time</p>
+                        </div>
+
+                        <select id="chartRange">
+                            <option value="all">All Time</option>
+                            <option value="10">Last 10</option>
+                            <option value="20">Last 20</option>
+                            <option value="50">Last 50</option>
+                        </select>
+
+                    </div>
+
+                    <canvas id="performanceChart"></canvas>
+
+                </div>
+
+
+                <!-- MARKET MOVERS -->
+
+                <div class="panel">
+
+                    <div class="panel-header">
+                        <div>
+                            <h3>Market Movers</h3>
+                            <p>Today's simulated movement</p>
+                        </div>
+                    </div>
+
+                    <div id="marketMovers"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- HOLDINGS -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h3>Your Holdings</h3>
+                        <p>Current positions</p>
+                    </div>
+
+                    <button class="secondary-btn"
+                            onclick="app.showSection('portfolio')">
+                        View Portfolio →
+                    </button>
+
+                </div>
+
+                <div id="dashboardHoldings"
+                     class="holdings-list">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MARKETS ================= -->
+
+        <section id="marketsSection"
+                 class="page-section hidden">
+
+            <div class="page-heading">
+
+                <div>
+                    <h2>Markets</h2>
+                    <p>Explore simulated market prices</p>
+                </div>
+
+                <div class="search-box">
+                    🔎
+                    <input id="stockSearch"
+                           type="text"
+                           placeholder="Search stocks...">
+                </div>
+
+            </div>
+
+            <div id="marketGrid"
+                 class="stock-grid">
+            </div>
+
+        </section>
+
+
+        <!-- ================= PORTFOLIO ================= -->
+
+        <section id="portfolioSection"
+                 class="page-section hidden">
+
+            <div class="page-heading">
+                <div>
+                    <h2>Portfolio</h2>
+                    <p>Manage your investments</p>
+                </div>
+            </div>
+
+            <div class="portfolio-summary">
+
+                <div>
+                    <span>Portfolio Value</span>
+                    <strong id="portfolioPageValue">
+                        $100,000.00
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Cash</span>
+                    <strong id="portfolioPageCash">
+                        $100,000.00
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Profit / Loss</span>
+                    <strong id="portfolioPageProfit">
+                        $0.00
+                    </strong>
+                </div>
+
+            </div>
+
+            <div class="panel">
+
+                <div class="panel-header">
+                    <h3>Positions</h3>
+                </div>
+
+                <div id="portfolioTable"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ORDERS ================= -->
+
+        <section id="ordersSection"
+                 class="page-section hidden">
+
+            <div class="page-heading">
+
+                <div>
+                    <h2>Order History</h2>
+                    <p>Your simulated trading activity</p>
+                </div>
+
+            </div>
+
+            <div class="panel">
+
+                <div id="ordersTable"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= WATCHLIST ================= -->
+
+        <section id="watchlistSection"
+                 class="page-section hidden">
+
+            <div class="page-heading">
+
+                <div>
+                    <h2>Watchlist ⭐</h2>
+                    <p>Track stocks you are interested in</p>
+                </div>
+
+            </div>
+
+            <div id="watchlistGrid"
+                 class="stock-grid">
+            </div>
+
+        </section>
+
+    </main>
+
+</section>
+
+
+<!-- ================= TRADE MODAL ================= -->
+
+<div id="tradeModal"
+     class="modal hidden">
+
+    <div class="modal-card">
+
+        <button id="closeModal"
+                class="modal-close">
+            ×
+        </button>
+
+        <div class="trade-title">
+
+            <div id="tradeLogo"
+                 class="stock-logo">
+                A
+            </div>
+
+            <div>
+                <h2 id="tradeSymbol">AAPL</h2>
+                <span id="tradeCompany">
+                    Apple Inc.
+                </span>
+            </div>
+
+        </div>
+
+        <div class="trade-price">
+
+            <span>Current Price</span>
+
+            <strong id="tradePrice">
+                $0.00
+            </strong>
+
+        </div>
+
+        <div class="trade-tabs">
+
+            <button id="buyTab"
+                    class="trade-tab active">
+                BUY
+            </button>
+
+            <button id="sellTab"
+                    class="trade-tab">
+                SELL
+            </button>
+
+        </div>
+
+        <label>Quantity</label>
+
+        <input id="tradeQuantity"
+               type="number"
+               min="1"
+               value="1">
+
+        <div class="order-info">
+
+            <div>
+                <span>Estimated Total</span>
+                <strong id="estimatedTotal">$0.00</strong>
+            </div>
+
+            <div>
+                <span>Available Cash</span>
+                <strong id="availableCash">$0.00</strong>
+            </div>
+
+        </div>
+
+        <button id="executeTrade"
+                class="primary-btn trade-button">
+            Buy Stock
+        </button>
+
+        <div id="tradeMessage"
+             class="form-message">
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+
+<div id="toast"
+     class="toast">
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
