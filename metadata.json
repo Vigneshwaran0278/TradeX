@@ -1,0 +1,8 @@
+{
+  "name": "TRADEGEN",
+  "description": "Next-Gen Trading. Smarter Decisions. Professional stock trading simulator with simulated market prices, portfolio analytics, price alerts, and order management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

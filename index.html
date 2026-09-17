@@ -4,28 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TradeX — Stock Trading Simulator</title>
+    <title>TRADEGEN — Next-Gen Trading. Smarter Decisions.</title>
+    <meta name="description" content="TRADEGEN: Next-Gen Trading. Smarter Decisions. Professional stock trading simulator with live market simulation, analytics, and portfolio management.">
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ================= AUTH ================= -->
-
+<!-- =========================================================
+     AUTH SCREEN
+========================================================= -->
 <section id="authScreen" class="auth-screen">
 
     <div class="auth-card">
 
         <div class="brand auth-brand">
-            <div class="brand-icon">T</div>
+            <div class="brand-icon">TG</div>
             <div>
-                <h1>TradeX</h1>
-                <span>Trading Simulator</span>
+                <h1>TRADEGEN</h1>
+                <span>Next-Gen Trading. Smarter Decisions.</span>
             </div>
         </div>
 
@@ -34,76 +38,76 @@
             <button class="auth-tab" data-auth="register">Create Account</button>
         </div>
 
-        <!-- LOGIN -->
-
+        <!-- LOGIN FORM -->
         <form id="loginForm" class="auth-form">
+            <h2>Welcome to TradeGen 👋</h2>
+            <p>Login to access your simulated trading desk.</p>
 
-            <h2>Welcome back 👋</h2>
-            <p>Login to continue trading.</p>
-
-            <label>Username or Email</label>
+            <label for="loginIdentity">Username or Email</label>
             <input id="loginIdentity"
                    type="text"
                    placeholder="Enter username or email"
+                   autocomplete="username"
                    required>
 
-            <label>Password</label>
+            <label for="loginPassword">Password</label>
             <input id="loginPassword"
                    type="password"
-                   placeholder="Enter password"
+                   placeholder="Enter your password"
+                   autocomplete="current-password"
                    required>
 
             <button class="primary-btn" type="submit">
-                Login
+                Access Trading Desk
             </button>
 
             <div id="loginMessage" class="form-message"></div>
 
+            <div class="auth-demo-hint">
+                <span>💡 Demo account ready? Register any username or login with existing data.</span>
+            </div>
         </form>
 
-        <!-- REGISTER -->
-
+        <!-- REGISTER FORM -->
         <form id="registerForm" class="auth-form hidden">
+            <h2>Start with $100,000 Cash 🚀</h2>
+            <p>Experience zero-risk paper trading with TradeGen.</p>
 
-            <h2>Create your account 🚀</h2>
-            <p>Start with $100,000 virtual cash.</p>
-
-            <label>Full Name</label>
+            <label for="registerName">Full Name</label>
             <input id="registerName"
                    type="text"
-                   placeholder="Your full name"
+                   placeholder="e.g. Alex Morgan"
                    required>
 
-            <label>Username</label>
+            <label for="registerUsername">Username</label>
             <input id="registerUsername"
                    type="text"
-                   placeholder="Choose username"
+                   placeholder="e.g. alex_trader"
                    required>
 
-            <label>Email</label>
+            <label for="registerEmail">Email</label>
             <input id="registerEmail"
                    type="email"
-                   placeholder="you@example.com"
+                   placeholder="trader@tradegen.app"
                    required>
 
-            <label>Password</label>
+            <label for="registerPassword">Password</label>
             <input id="registerPassword"
                    type="password"
                    placeholder="Minimum 6 characters"
                    required>
 
-            <label>Confirm Password</label>
+            <label for="registerConfirm">Confirm Password</label>
             <input id="registerConfirm"
                    type="password"
-                   placeholder="Confirm password"
+                   placeholder="Confirm your password"
                    required>
 
             <button class="primary-btn" type="submit">
-                Create Account
+                Create Account &amp; Claim $100k
             </button>
 
             <div id="registerMessage" class="form-message"></div>
-
         </form>
 
     </div>
@@ -111,101 +115,149 @@
 </section>
 
 
-<!-- ================= APP ================= -->
-
+<!-- =========================================================
+     APP SCREEN (MAIN TRADING SUITE)
+========================================================= -->
 <section id="appScreen" class="app hidden">
 
     <!-- SIDEBAR -->
-
-    <aside class="sidebar">
+    <aside class="sidebar" id="appSidebar">
 
         <div class="brand">
-            <div class="brand-icon">T</div>
-
+            <div class="brand-icon">TG</div>
             <div>
-                <h1>TradeX</h1>
-                <span>Simulator</span>
+                <h1>TRADEGEN</h1>
+                <span>Smarter Decisions.</span>
             </div>
+            <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close menu">✕</button>
         </div>
 
-        <nav>
-
+        <nav class="sidebar-nav">
             <button class="nav-item active" data-section="dashboard">
-                <span>◈</span>
+                <span class="nav-icon">◈</span>
                 Dashboard
             </button>
 
             <button class="nav-item" data-section="markets">
-                <span>📈</span>
+                <span class="nav-icon">📈</span>
                 Markets
             </button>
 
-            <button class="nav-item" data-section="portfolio">
-                <span>💼</span>
-                Portfolio
-            </button>
-
-            <button class="nav-item" data-section="orders">
-                <span>🧾</span>
-                Orders
-            </button>
-
             <button class="nav-item" data-section="watchlist">
-                <span>⭐</span>
+                <span class="nav-icon">⭐</span>
                 Watchlist
             </button>
 
+            <button class="nav-item" data-section="portfolio">
+                <span class="nav-icon">💼</span>
+                Portfolio
+            </button>
+
+            <button class="nav-item" data-section="analytics">
+                <span class="nav-icon">📊</span>
+                Analytics
+            </button>
+
+            <button class="nav-item" data-section="orders">
+                <span class="nav-icon">🧾</span>
+                Orders
+            </button>
+
+            <button class="nav-item" data-section="leaderboard">
+                <span class="nav-icon">🏆</span>
+                Leaderboard
+            </button>
+
+            <button class="nav-item" data-section="achievements">
+                <span class="nav-icon">🎖️</span>
+                Achievements
+            </button>
         </nav>
 
         <div class="sidebar-bottom">
+            <div class="market-status-box">
+                <div class="market-status">
+                    <span class="status-dot"></span>
+                    <span id="marketSimLabel">Simulated Market</span>
+                    <small id="marketLivePill">LIVE</small>
+                </div>
+            </div>
 
-            <div class="market-status">
-                <span class="status-dot"></span>
-                Market Simulation
-                <small>LIVE</small>
+            <div class="sidebar-quick-tools">
+                <button id="sidebarAlertsBtn" class="sidebar-tool-btn" title="Price Alerts">
+                    🔔 <span>Price Alerts</span>
+                </button>
+                <button id="sidebarSettingsBtn" class="sidebar-tool-btn" title="Settings">
+                    ⚙️ <span>Settings</span>
+                </button>
+                <button id="sidebarResetBtn" class="sidebar-tool-btn danger" title="Reset Simulation">
+                    ↺ <span>Reset Simulation</span>
+                </button>
             </div>
 
             <button id="logoutBtn" class="logout-btn">
                 ↪ Logout
             </button>
-
         </div>
 
     </aside>
 
+    <!-- SIDEBAR BACKDROP (MOBILE) -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
-    <!-- MAIN -->
 
+    <!-- MAIN CONTENT WRAPPER -->
     <main class="main">
 
-        <!-- HEADER -->
-
+        <!-- TOPBAR -->
         <header class="topbar">
 
-            <div>
-                <span class="mobile-menu">☰</span>
-                <h2 id="pageTitle">Dashboard</h2>
-                <p id="welcomeText">Welcome back!</p>
+            <div class="topbar-left">
+                <button class="mobile-menu" id="mobileMenuBtn" aria-label="Toggle navigation">☰</button>
+                <div>
+                    <h2 id="pageTitle">Dashboard</h2>
+                    <p id="welcomeText">Welcome back to TradeGen!</p>
+                </div>
+            </div>
+
+            <!-- GLOBAL SEARCH BAR -->
+            <div class="global-search-container">
+                <div class="global-search-box">
+                    <span class="search-icon">🔎</span>
+                    <input id="globalSearchInput"
+                           type="text"
+                           placeholder="Search stocks by symbol or company (e.g. NVDA, Apple)..."
+                           autocomplete="off">
+                    <kbd class="search-kbd">/</kbd>
+                </div>
+                <!-- SEARCH AUTO-SUGGEST DROPDOWN -->
+                <div id="searchSuggestions" class="search-suggestions hidden"></div>
             </div>
 
             <div class="top-actions">
 
-                <div class="market-clock">
-                    <span class="status-dot"></span>
-                    MARKET OPEN
+                <div class="sim-badge" title="This is a paper trading simulator. No real money involved.">
+                    SIMULATED MARKET
                 </div>
 
-                <div class="user-menu">
+                <div class="market-clock" id="marketClockBadge">
+                    <span class="status-dot"></span>
+                    <span id="marketClockStatus">MARKET OPEN</span>
+                </div>
 
-                    <div id="userAvatar" class="avatar">
-                        U
-                    </div>
+                <!-- NOTIFICATIONS BELL -->
+                <button id="notifBellBtn" class="icon-btn notif-btn" title="Notifications" aria-label="Notifications">
+                    🔔
+                    <span id="notifBadge" class="notif-badge hidden">0</span>
+                </button>
 
-                    <div>
+                <!-- USER MENU -->
+                <div class="user-menu" id="userMenuTrigger">
+                    <div id="userAvatar" class="avatar">U</div>
+                    <div class="user-meta">
                         <strong id="userName">Trader</strong>
                         <small id="userEmail">user@email.com</small>
                     </div>
-
                 </div>
 
             </div>
@@ -213,104 +265,210 @@
         </header>
 
 
-        <!-- ================= DASHBOARD ================= -->
-
+        <!-- =====================================================
+             1. DASHBOARD SECTION
+        ===================================================== -->
         <section id="dashboardSection" class="page-section">
 
+            <!-- MARKET OVERVIEW STRIP -->
+            <div class="market-overview-bar">
+                <div class="market-pill">
+                    <span class="pill-label">Market Status</span>
+                    <strong class="green" id="overviewStatus">● OPEN</strong>
+                </div>
+                <div class="market-pill">
+                    <span class="pill-label">Sentiment</span>
+                    <strong id="overviewSentiment">Bullish (67%)</strong>
+                </div>
+                <div class="market-pill">
+                    <span class="pill-label">Avg Movement</span>
+                    <strong id="overviewAvgMove">+0.48%</strong>
+                </div>
+                <div class="market-pill">
+                    <span class="pill-label">Top Gainer</span>
+                    <strong class="green" id="overviewTopGainer">NVDA +2.8%</strong>
+                </div>
+                <div class="market-pill">
+                    <span class="pill-label">Top Loser</span>
+                    <strong class="red" id="overviewTopLoser">INTC -1.4%</strong>
+                </div>
+                <div class="market-pill">
+                    <span class="pill-label">Most Active</span>
+                    <strong id="overviewMostActive">AAPL (1.4M)</strong>
+                </div>
+            </div>
+
+            <!-- STATS CARDS -->
             <div class="stats-grid">
 
                 <div class="stat-card">
-                    <span>Total Portfolio</span>
+                    <div class="stat-header">
+                        <span>Total Portfolio</span>
+                        <span class="stat-icon">💼</span>
+                    </div>
                     <strong id="totalPortfolio">$100,000.00</strong>
-                    <small id="portfolioChange">+0.00%</small>
+                    <div class="stat-footer">
+                        <small id="portfolioChange">+0.00%</small>
+                        <span class="stat-sub">Overall performance</span>
+                    </div>
                 </div>
 
                 <div class="stat-card">
-                    <span>Available Cash</span>
+                    <div class="stat-header">
+                        <span>Available Cash</span>
+                        <span class="stat-icon">💵</span>
+                    </div>
                     <strong id="cashBalance">$100,000.00</strong>
-                    <small>Buying power</small>
+                    <div class="stat-footer">
+                        <small class="neutral-pill">Buying power</small>
+                    </div>
                 </div>
 
                 <div class="stat-card">
-                    <span>Invested</span>
+                    <div class="stat-header">
+                        <span>Invested Amount</span>
+                        <span class="stat-icon">📈</span>
+                    </div>
                     <strong id="investedValue">$0.00</strong>
-                    <small>Current positions</small>
+                    <div class="stat-footer">
+                        <small id="positionsCountLabel">0 active positions</small>
+                    </div>
                 </div>
 
                 <div class="stat-card">
-                    <span>Total P/L</span>
+                    <div class="stat-header">
+                        <span>Total Profit / Loss</span>
+                        <span class="stat-icon">⚖️</span>
+                    </div>
                     <strong id="totalProfit">$0.00</strong>
-                    <small id="profitPercent">0.00%</small>
+                    <div class="stat-footer">
+                        <small id="profitPercent">+0.00%</small>
+                        <span class="stat-sub">Total return</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span>Today's P/L</span>
+                        <span class="stat-icon">⚡</span>
+                    </div>
+                    <strong id="todayProfit">$0.00</strong>
+                    <div class="stat-footer">
+                        <small id="todayProfitPercent">+0.00%</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span>Win Rate</span>
+                        <span class="stat-icon">🎯</span>
+                    </div>
+                    <strong id="dashboardWinRate">0.0%</strong>
+                    <div class="stat-footer">
+                        <small id="dashboardTradeRatio">0 wins / 0 closed</small>
+                    </div>
                 </div>
 
             </div>
 
 
+            <!-- CHARTS & ALLOCATION ROW -->
             <div class="dashboard-grid">
 
-                <!-- CHART -->
-
+                <!-- PERFORMANCE LINE CHART -->
                 <div class="panel chart-panel">
-
                     <div class="panel-header">
-
                         <div>
                             <h3>Portfolio Performance</h3>
-                            <p>Your portfolio value over time</p>
+                            <p>Interactive portfolio equity trajectory over time</p>
                         </div>
-
-                        <select id="chartRange">
-                            <option value="all">All Time</option>
-                            <option value="10">Last 10</option>
-                            <option value="20">Last 20</option>
-                            <option value="50">Last 50</option>
-                        </select>
-
+                        <div class="chart-timeframes">
+                            <button class="timeframe-btn" data-range="10">1D</button>
+                            <button class="timeframe-btn" data-range="20">1W</button>
+                            <button class="timeframe-btn" data-range="40">1M</button>
+                            <button class="timeframe-btn" data-range="60">3M</button>
+                            <button class="timeframe-btn active" data-range="all">ALL</button>
+                            <select id="chartRange" class="hidden-select" aria-label="Chart range">
+                                <option value="all" selected>All Time</option>
+                                <option value="10">Last 10</option>
+                                <option value="20">Last 20</option>
+                                <option value="40">Last 40</option>
+                                <option value="60">Last 60</option>
+                            </select>
+                        </div>
                     </div>
-
-                    <canvas id="performanceChart"></canvas>
-
+                    <div class="canvas-wrapper">
+                        <canvas id="performanceChart"></canvas>
+                        <div id="chartTooltip" class="chart-tooltip hidden"></div>
+                    </div>
                 </div>
 
+                <!-- PORTFOLIO ALLOCATION DONUT CHART -->
+                <div class="panel allocation-panel">
+                    <div class="panel-header">
+                        <div>
+                            <h3>Portfolio Allocation</h3>
+                            <p>Asset distribution &amp; cash reserve</p>
+                        </div>
+                        <span class="badge" id="diversificationBadge">Moderate</span>
+                    </div>
+
+                    <div class="allocation-body">
+                        <div class="donut-wrapper">
+                            <canvas id="allocationChart"></canvas>
+                            <div class="donut-center-info">
+                                <span class="donut-label">Cash Ratio</span>
+                                <strong id="donutCashPercent">100%</strong>
+                            </div>
+                        </div>
+                        <div id="allocationLegend" class="allocation-legend">
+                            <!-- Populated via JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="diversification-box">
+                        <div class="diversification-bar-track">
+                            <div id="diversificationBarFill" class="diversification-bar-fill" style="width: 25%"></div>
+                        </div>
+                        <div class="diversification-footer">
+                            <span>Diversification: <strong id="diversificationText">Low</strong></span>
+                            <small class="disclaimer-text">Simulator metric only</small>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- MARKET MOVERS & HOLDINGS ROW -->
+            <div class="dashboard-secondary-grid">
 
                 <!-- MARKET MOVERS -->
-
                 <div class="panel">
-
                     <div class="panel-header">
                         <div>
                             <h3>Market Movers</h3>
-                            <p>Today's simulated movement</p>
+                            <p>Top fluctuating simulated stocks today</p>
                         </div>
+                        <button class="secondary-btn" onclick="app.showSection('markets')">
+                            All Markets →
+                        </button>
                     </div>
-
-                    <div id="marketMovers"></div>
-
+                    <div id="marketMovers" class="movers-list"></div>
                 </div>
 
-            </div>
-
-
-            <!-- HOLDINGS -->
-
-            <div class="panel">
-
-                <div class="panel-header">
-
-                    <div>
-                        <h3>Your Holdings</h3>
-                        <p>Current positions</p>
+                <!-- QUICK HOLDINGS PREVIEW -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <div>
+                            <h3>Your Holdings</h3>
+                            <p>Active open positions in your portfolio</p>
+                        </div>
+                        <button class="secondary-btn" onclick="app.showSection('portfolio')">
+                            Full Portfolio →
+                        </button>
                     </div>
-
-                    <button class="secondary-btn"
-                            onclick="app.showSection('portfolio')">
-                        View Portfolio →
-                    </button>
-
-                </div>
-
-                <div id="dashboardHoldings"
-                     class="holdings-list">
+                    <div id="dashboardHoldings" class="holdings-list"></div>
                 </div>
 
             </div>
@@ -318,124 +476,295 @@
         </section>
 
 
-        <!-- ================= MARKETS ================= -->
-
-        <section id="marketsSection"
-                 class="page-section hidden">
+        <!-- =====================================================
+             2. MARKETS SECTION
+        ===================================================== -->
+        <section id="marketsSection" class="page-section hidden">
 
             <div class="page-heading">
-
                 <div>
-                    <h2>Markets</h2>
-                    <p>Explore simulated market prices</p>
+                    <h2>Simulated Markets</h2>
+                    <p>Live fluctuating quotes for equities. Click any stock to view full analysis or trade.</p>
                 </div>
 
-                <div class="search-box">
-                    🔎
-                    <input id="stockSearch"
-                           type="text"
-                           placeholder="Search stocks...">
+                <div class="heading-controls">
+                    <div class="search-box">
+                        <span class="search-icon">🔎</span>
+                        <input id="stockSearch"
+                               type="text"
+                               placeholder="Filter markets...">
+                    </div>
+                    <div class="view-toggle">
+                        <button class="toggle-btn active" id="viewGridBtn" title="Grid View">⊞</button>
+                        <button class="toggle-btn" id="viewTableBtn" title="Table View">☰</button>
+                    </div>
                 </div>
-
             </div>
 
-            <div id="marketGrid"
-                 class="stock-grid">
+            <!-- MARKET CATEGORY CHIPS -->
+            <div class="market-chips">
+                <button class="chip active" data-filter="all">All Equities</button>
+                <button class="chip" data-filter="tech">Tech Giants</button>
+                <button class="chip" data-filter="gainers">Top Gainers</button>
+                <button class="chip" data-filter="losers">Top Losers</button>
+                <button class="chip" data-filter="watched">Watchlist Only</button>
+            </div>
+
+            <div id="marketGrid" class="stock-grid"></div>
+            <div id="marketTableContainer" class="panel hidden">
+                <div id="marketTableView"></div>
             </div>
 
         </section>
 
 
-        <!-- ================= PORTFOLIO ================= -->
-
-        <section id="portfolioSection"
-                 class="page-section hidden">
+        <!-- =====================================================
+             3. WATCHLIST SECTION
+        ===================================================== -->
+        <section id="watchlistSection" class="page-section hidden">
 
             <div class="page-heading">
                 <div>
-                    <h2>Portfolio</h2>
-                    <p>Manage your investments</p>
+                    <h2>My Watchlist ⭐</h2>
+                    <p>Track your priority stocks and set price triggers</p>
                 </div>
+
+                <div class="watchlist-controls">
+                    <label for="watchlistSort" class="control-label">Sort by:</label>
+                    <select id="watchlistSort" class="select-dropdown">
+                        <option value="symbol">Symbol (A-Z)</option>
+                        <option value="priceDesc">Price: High to Low</option>
+                        <option value="priceAsc">Price: Low to High</option>
+                        <option value="changeDesc">Top Gainers</option>
+                        <option value="changeAsc">Top Losers</option>
+                        <option value="volumeDesc">Highest Volume</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="watchlistGrid" class="stock-grid"></div>
+
+        </section>
+
+
+        <!-- =====================================================
+             4. PORTFOLIO SECTION
+        ===================================================== -->
+        <section id="portfolioSection" class="page-section hidden">
+
+            <div class="page-heading">
+                <div>
+                    <h2>Portfolio &amp; Positions</h2>
+                    <p>Detailed breakdown of your holdings, invested equity, and position returns.</p>
+                </div>
+                <button class="primary-btn" onclick="app.showSection('markets')">
+                    + Invest More Cash
+                </button>
             </div>
 
             <div class="portfolio-summary">
-
-                <div>
+                <div class="summary-card">
                     <span>Portfolio Value</span>
-                    <strong id="portfolioPageValue">
-                        $100,000.00
-                    </strong>
+                    <strong id="portfolioPageValue">$100,000.00</strong>
+                    <small id="portfolioPageReturn">+0.00% return</small>
                 </div>
 
-                <div>
-                    <span>Cash</span>
-                    <strong id="portfolioPageCash">
-                        $100,000.00
-                    </strong>
+                <div class="summary-card">
+                    <span>Available Cash</span>
+                    <strong id="portfolioPageCash">$100,000.00</strong>
+                    <small>Unallocated capital</small>
                 </div>
 
-                <div>
-                    <span>Profit / Loss</span>
-                    <strong id="portfolioPageProfit">
-                        $0.00
-                    </strong>
+                <div class="summary-card">
+                    <span>Unrealized P/L</span>
+                    <strong id="portfolioPageProfit">$0.00</strong>
+                    <small id="portfolioPositionsCount">0 holdings</small>
                 </div>
-
             </div>
 
             <div class="panel">
-
                 <div class="panel-header">
-                    <h3>Positions</h3>
+                    <h3>Open Positions</h3>
+                    <p>Holdings with live profit/loss calculations</p>
                 </div>
-
-                <div id="portfolioTable"></div>
-
+                <div id="portfolioTable" class="table-responsive"></div>
             </div>
 
         </section>
 
 
-        <!-- ================= ORDERS ================= -->
-
-        <section id="ordersSection"
-                 class="page-section hidden">
+        <!-- =====================================================
+             5. ANALYTICS SECTION
+        ===================================================== -->
+        <section id="analyticsSection" class="page-section hidden">
 
             <div class="page-heading">
-
                 <div>
-                    <h2>Order History</h2>
-                    <p>Your simulated trading activity</p>
+                    <h2>Trading Analytics 📊</h2>
+                    <p>Comprehensive performance metrics, execution statistics, and win/loss ratio.</p>
+                </div>
+            </div>
+
+            <div class="analytics-metrics-grid">
+                <div class="stat-card">
+                    <span>Total Trades</span>
+                    <strong id="analyticsTotalTrades">0</strong>
+                    <small id="analyticsBuySellRatio">0 Buys / 0 Sells</small>
+                </div>
+                <div class="stat-card">
+                    <span>Win Rate</span>
+                    <strong id="analyticsWinRate" class="green">0.0%</strong>
+                    <small id="analyticsWinLossCount">0 wins / 0 losses</small>
+                </div>
+                <div class="stat-card">
+                    <span>Total Realized P/L</span>
+                    <strong id="analyticsRealizedPL">$0.00</strong>
+                    <small>From closed sell orders</small>
+                </div>
+                <div class="stat-card">
+                    <span>Avg Trade Value</span>
+                    <strong id="analyticsAvgTradeVal">$0.00</strong>
+                    <small>Per executed order</small>
+                </div>
+                <div class="stat-card">
+                    <span>Largest Winning Trade</span>
+                    <strong id="analyticsLargestWin" class="green">+$0.00</strong>
+                    <small id="analyticsLargestWinStock">None yet</small>
+                </div>
+                <div class="stat-card">
+                    <span>Largest Losing Trade</span>
+                    <strong id="analyticsLargestLoss" class="red">-$0.00</strong>
+                    <small id="analyticsLargestLossStock">None yet</small>
+                </div>
+                <div class="stat-card">
+                    <span>Most Traded Stock</span>
+                    <strong id="analyticsMostTraded">—</strong>
+                    <small id="analyticsMostTradedCount">0 total orders</small>
+                </div>
+            </div>
+
+            <div class="analytics-charts-grid">
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Win / Loss Ratio</h3>
+                        <p>Performance on realized transactions</p>
+                    </div>
+                    <div class="ratio-bar-container">
+                        <div class="ratio-bar">
+                            <div id="winBar" class="win-fill" style="width: 50%"></div>
+                            <div id="lossBar" class="loss-fill" style="width: 50%"></div>
+                        </div>
+                        <div class="ratio-labels">
+                            <span class="green" id="winLabel">Profitable Trades: 0</span>
+                            <span class="red" id="lossLabel">Loss Trades: 0</span>
+                        </div>
+                    </div>
                 </div>
 
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Order Distribution</h3>
+                        <p>Buy vs. Sell transaction volume</p>
+                    </div>
+                    <div class="ratio-bar-container">
+                        <div class="ratio-bar">
+                            <div id="buyBar" class="buy-fill" style="width: 50%"></div>
+                            <div id="sellBar" class="sell-fill" style="width: 50%"></div>
+                        </div>
+                        <div class="ratio-labels">
+                            <span class="blue" id="buyLabel">Buy Orders: 0</span>
+                            <span class="purple" id="sellLabel">Sell Orders: 0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             6. ORDERS (TRANSACTION HISTORY) SECTION
+        ===================================================== -->
+        <section id="ordersSection" class="page-section hidden">
+
+            <div class="page-heading">
+                <div>
+                    <h2>Order History 🧾</h2>
+                    <p>Complete ledger of simulated market executions and realized profit/loss.</p>
+                </div>
+
+                <div class="orders-controls">
+                    <div class="filter-pills">
+                        <button class="order-filter-btn active" data-order-filter="ALL">ALL</button>
+                        <button class="order-filter-btn" data-order-filter="BUY">BUY</button>
+                        <button class="order-filter-btn" data-order-filter="SELL">SELL</button>
+                        <button class="order-filter-btn" data-order-filter="PROFIT">PROFIT</button>
+                        <button class="order-filter-btn" data-order-filter="LOSS">LOSS</button>
+                    </div>
+
+                    <select id="ordersSort" class="select-dropdown">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="highest">Highest Total Value</option>
+                        <option value="lowest">Lowest Total Value</option>
+                    </select>
+                </div>
             </div>
 
             <div class="panel">
-
-                <div id="ordersTable"></div>
-
+                <div id="ordersTable" class="table-responsive"></div>
             </div>
 
         </section>
 
 
-        <!-- ================= WATCHLIST ================= -->
-
-        <section id="watchlistSection"
-                 class="page-section hidden">
+        <!-- =====================================================
+             7. LEADERBOARD SECTION
+        ===================================================== -->
+        <section id="leaderboardSection" class="page-section hidden">
 
             <div class="page-heading">
-
                 <div>
-                    <h2>Watchlist ⭐</h2>
-                    <p>Track stocks you are interested in</p>
+                    <h2>Paper Trading Leaderboard 🏆</h2>
+                    <p>Benchmark your simulated portfolio performance against community simulated traders.</p>
                 </div>
-
+                <div class="sim-leaderboard-tag">
+                    SIMULATED LEADERBOARD
+                </div>
             </div>
 
-            <div id="watchlistGrid"
-                 class="stock-grid">
+            <div class="panel">
+                <div class="leaderboard-disclaimer">
+                    <span>ℹ️ <strong>Simulated Benchmarking:</strong> Competitor profiles and balances are simulated demo benchmarks for educational goal-setting.</span>
+                </div>
+                <div id="leaderboardTable" class="table-responsive"></div>
             </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             8. ACHIEVEMENTS SECTION
+        ===================================================== -->
+        <section id="achievementsSection" class="page-section hidden">
+
+            <div class="page-heading">
+                <div>
+                    <h2>Trader Achievements 🎖️</h2>
+                    <p>Unlock trading milestones as you build and manage your simulated portfolio.</p>
+                </div>
+                <div class="achievements-summary-badge" id="achievementsSummaryBadge">
+                    0 / 10 Unlocked
+                </div>
+            </div>
+
+            <div class="achievements-progress-bar-wrap">
+                <div class="achievements-track">
+                    <div id="achievementsFill" class="achievements-fill" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div id="achievementsGrid" class="achievements-grid"></div>
 
         </section>
 
@@ -444,86 +773,193 @@
 </section>
 
 
-<!-- ================= TRADE MODAL ================= -->
-
-<div id="tradeModal"
-     class="modal hidden">
+<!-- =========================================================
+     MODAL 1: TRADE MODAL (BUY / SELL)
+========================================================= -->
+<div id="tradeModal" class="modal hidden">
 
     <div class="modal-card">
 
-        <button id="closeModal"
-                class="modal-close">
-            ×
-        </button>
+        <button id="closeModal" class="modal-close" aria-label="Close trade window">×</button>
 
         <div class="trade-title">
-
-            <div id="tradeLogo"
-                 class="stock-logo">
-                A
-            </div>
-
+            <div id="tradeLogo" class="stock-logo">A</div>
             <div>
-                <h2 id="tradeSymbol">AAPL</h2>
-                <span id="tradeCompany">
-                    Apple Inc.
-                </span>
+                <div class="stock-title-row">
+                    <h2 id="tradeSymbol">AAPL</h2>
+                    <span id="tradeCurrentPriceBadge" class="price-chip">$0.00</span>
+                </div>
+                <span id="tradeCompany">Apple Inc.</span>
             </div>
-
         </div>
 
-        <div class="trade-price">
-
-            <span>Current Price</span>
-
-            <strong id="tradePrice">
-                $0.00
-            </strong>
-
-        </div>
-
+        <!-- BUY / SELL TABS -->
         <div class="trade-tabs">
-
-            <button id="buyTab"
-                    class="trade-tab active">
-                BUY
-            </button>
-
-            <button id="sellTab"
-                    class="trade-tab">
-                SELL
-            </button>
-
+            <button id="buyTab" class="trade-tab active">BUY</button>
+            <button id="sellTab" class="trade-tab">SELL</button>
         </div>
 
-        <label>Quantity</label>
+        <!-- QUICK STOCK SELECTOR (IF CHANGING STOCK IN MODAL) -->
+        <div class="form-group">
+            <label for="tradeStockSelect">Selected Asset</label>
+            <select id="tradeStockSelect" class="select-dropdown full-width">
+                <!-- Populated via script -->
+            </select>
+        </div>
 
-        <input id="tradeQuantity"
-               type="number"
-               min="1"
-               value="1">
-
-        <div class="order-info">
-
-            <div>
-                <span>Estimated Total</span>
-                <strong id="estimatedTotal">$0.00</strong>
+        <!-- QUANTITY CONTROLS -->
+        <div class="form-group">
+            <div class="quantity-header">
+                <label for="tradeQuantity">Share Quantity</label>
+                <span id="quantityOwnedLabel" class="owned-hint">Owned: 0 shares</span>
             </div>
 
-            <div>
+            <div class="quantity-stepper">
+                <button type="button" id="qtyMinusBtn" class="stepper-btn" aria-label="Decrease quantity">[-]</button>
+                <input id="tradeQuantity"
+                       type="number"
+                       min="1"
+                       step="1"
+                       value="1"
+                       class="stepper-input">
+                <button type="button" id="qtyPlusBtn" class="stepper-btn" aria-label="Increase quantity">[+]</button>
+            </div>
+
+            <!-- QUICK QUANTITY PRESETS -->
+            <div class="quantity-presets">
+                <button type="button" class="preset-btn" data-qty="1">+1</button>
+                <button type="button" class="preset-btn" data-qty="5">+5</button>
+                <button type="button" class="preset-btn" data-qty="10">+10</button>
+                <button type="button" class="preset-btn" data-qty="25">+25</button>
+                <button type="button" class="preset-btn" id="qtyMaxBtn">Max</button>
+            </div>
+        </div>
+
+        <!-- ORDER CALCULATION SUMMARY -->
+        <div class="order-info">
+            <div class="info-row">
+                <span>Unit Price</span>
+                <strong id="tradePrice">$0.00</strong>
+            </div>
+            <div class="info-row">
                 <span>Available Cash</span>
                 <strong id="availableCash">$0.00</strong>
             </div>
-
+            <div class="info-row">
+                <span>Estimated Total Cost</span>
+                <strong id="estimatedTotal" class="total-highlight">$0.00</strong>
+            </div>
+            <div id="tradeSellPLRow" class="info-row hidden">
+                <span>Estimated Realized P/L</span>
+                <strong id="estimatedSellPL">$0.00</strong>
+            </div>
         </div>
 
-        <button id="executeTrade"
-                class="primary-btn trade-button">
+        <!-- EXECUTE BUTTON -->
+        <button id="executeTrade" class="primary-btn trade-button">
             Buy Stock
         </button>
 
-        <div id="tradeMessage"
-             class="form-message">
+        <div id="tradeMessage" class="form-message"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     MODAL 2: STOCK DETAILS MODAL
+========================================================= -->
+<div id="stockDetailsModal" class="modal hidden">
+
+    <div class="modal-card modal-large">
+
+        <button id="closeDetailsModal" class="modal-close" aria-label="Close details">×</button>
+
+        <div class="details-header">
+            <div class="details-header-left">
+                <div id="detailsLogo" class="stock-logo large">A</div>
+                <div>
+                    <div class="details-title-row">
+                        <h2 id="detailsSymbol">AAPL</h2>
+                        <span id="detailsChange" class="badge green">+0.00%</span>
+                        <span class="sim-badge small">SIMULATED</span>
+                    </div>
+                    <span id="detailsCompany">Apple Inc.</span>
+                </div>
+            </div>
+            <div class="details-header-right">
+                <div class="details-price" id="detailsPrice">$0.00</div>
+                <small class="details-sub">Simulated Real-time</small>
+            </div>
+        </div>
+
+        <!-- INTERACTIVE MINI PRICE SPARKLINE -->
+        <div class="details-chart-wrap">
+            <div class="chart-header-mini">
+                <span>Price Trend Simulation</span>
+                <span class="live-indicator"><span class="status-dot"></span> LIVE TICKER</span>
+            </div>
+            <canvas id="stockDetailsChart"></canvas>
+        </div>
+
+        <!-- KEY MARKET STATS GRID -->
+        <div class="details-stats-grid">
+            <div class="stat-mini">
+                <span>Previous Price</span>
+                <strong id="detailsPrevPrice">$0.00</strong>
+            </div>
+            <div class="stat-mini">
+                <span>Day High</span>
+                <strong id="detailsDayHigh">$0.00</strong>
+            </div>
+            <div class="stat-mini">
+                <span>Day Low</span>
+                <strong id="detailsDayLow">$0.00</strong>
+            </div>
+            <div class="stat-mini">
+                <span>Volume</span>
+                <strong id="detailsVolume">0</strong>
+            </div>
+        </div>
+
+        <!-- YOUR HOLDING IN THIS STOCK -->
+        <div class="details-holding-box">
+            <h4>Your Position in <span id="detailsPositionSymbol">AAPL</span></h4>
+            <div class="details-holding-grid">
+                <div>
+                    <span>Owned Shares</span>
+                    <strong id="detailsOwnedShares">0</strong>
+                </div>
+                <div>
+                    <span>Avg Purchase Price</span>
+                    <strong id="detailsAvgPrice">$0.00</strong>
+                </div>
+                <div>
+                    <span>Position Market Value</span>
+                    <strong id="detailsPositionValue">$0.00</strong>
+                </div>
+                <div>
+                    <span>Unrealized P/L</span>
+                    <strong id="detailsUnrealizedPL">$0.00</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUICK ACTIONS IN MODAL -->
+        <div class="details-actions">
+            <button id="detailsTradeBuyBtn" class="buy-btn">
+                Trade / Buy
+            </button>
+            <button id="detailsTradeSellBtn" class="sell-btn">
+                Sell Shares
+            </button>
+            <button id="detailsWatchlistBtn" class="secondary-btn">
+                ⭐ Add to Watchlist
+            </button>
+            <button id="detailsAlertBtn" class="secondary-btn">
+                🔔 Set Price Alert
+            </button>
         </div>
 
     </div>
@@ -531,13 +967,188 @@
 </div>
 
 
-<!-- ================= TOAST ================= -->
+<!-- =========================================================
+     MODAL 3: PRICE ALERTS MODAL
+========================================================= -->
+<div id="priceAlertModal" class="modal hidden">
 
-<div id="toast"
-     class="toast">
+    <div class="modal-card">
+
+        <button id="closeAlertModal" class="modal-close" aria-label="Close alerts">×</button>
+
+        <div class="modal-heading-row">
+            <h2>Price Alerts 🔔</h2>
+            <p>Get instant notifications when a simulated stock crosses your target price.</p>
+        </div>
+
+        <!-- NEW ALERT FORM -->
+        <form id="createAlertForm" class="alert-form">
+            <div class="form-group">
+                <label for="alertStockSelect">Select Asset</label>
+                <select id="alertStockSelect" class="select-dropdown full-width">
+                    <!-- Populated via script -->
+                </select>
+            </div>
+
+            <div class="form-row-2">
+                <div class="form-group">
+                    <label for="alertCondition">Condition</label>
+                    <select id="alertCondition" class="select-dropdown full-width">
+                        <option value="ABOVE">Price Rises Above (≥)</option>
+                        <option value="BELOW">Price Drops Below (≤)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="alertTargetPrice">Target Price ($)</label>
+                    <input id="alertTargetPrice"
+                           type="number"
+                           step="0.01"
+                           min="0.01"
+                           placeholder="e.g. 180.00"
+                           required>
+                </div>
+            </div>
+
+            <button type="submit" class="primary-btn">
+                + Create Price Alert
+            </button>
+        </form>
+
+        <!-- ACTIVE ALERTS LIST -->
+        <div class="active-alerts-section">
+            <div class="active-alerts-header">
+                <h3>Active &amp; Triggered Alerts</h3>
+                <span id="alertsCountBadge" class="badge">0</span>
+            </div>
+            <div id="alertsList" class="alerts-list"></div>
+        </div>
+
+    </div>
+
 </div>
 
 
+<!-- =========================================================
+     MODAL 4: NOTIFICATION CENTER MODAL / DROPDOWN
+========================================================= -->
+<div id="notifModal" class="modal hidden">
+
+    <div class="modal-card">
+
+        <button id="closeNotifModal" class="modal-close" aria-label="Close notifications">×</button>
+
+        <div class="modal-heading-row">
+            <div class="notif-header-title">
+                <h2>Notifications 🔔</h2>
+                <span id="notifHeaderCount" class="badge">0 new</span>
+            </div>
+            <div class="notif-actions">
+                <button id="markAllReadBtn" class="text-btn">Mark all as read</button>
+                <button id="clearAllNotifsBtn" class="text-btn danger">Clear all</button>
+            </div>
+        </div>
+
+        <div id="notifList" class="notif-list">
+            <!-- Populated via script -->
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     MODAL 5: SETTINGS MODAL
+========================================================= -->
+<div id="settingsModal" class="modal hidden">
+
+    <div class="modal-card">
+
+        <button id="closeSettingsModal" class="modal-close" aria-label="Close settings">×</button>
+
+        <div class="modal-heading-row">
+            <h2>Simulator Settings ⚙️</h2>
+            <p>Customize your TradeGen interface and simulator state.</p>
+        </div>
+
+        <div class="settings-group">
+            <h3>Display &amp; Appearance</h3>
+            <div class="setting-item">
+                <div>
+                    <strong>Compact Layout</strong>
+                    <small>Denser tables and tighter padding</small>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="settingCompact">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="setting-item">
+                <div>
+                    <strong>Smooth Animations</strong>
+                    <small>Enable UI transitions and canvas interpolation</small>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="settingAnimations" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="setting-item">
+                <div>
+                    <strong>Sound Effects</strong>
+                    <small>Subtle audio clicks for trade executions (Web Audio API)</small>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="settingSounds" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="settings-group">
+            <h3>Simulator Data Management</h3>
+            <div class="danger-zone">
+                <button id="clearWatchlistBtn" class="secondary-btn full-width">
+                    Clear Watchlist
+                </button>
+                <button id="clearOrderHistoryBtn" class="secondary-btn full-width">
+                    Clear Order History
+                </button>
+                <button id="settingsResetBtn" class="danger-btn full-width">
+                    ↺ Reset Simulation to $100,000 Cash
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     MODAL 6: GENERIC CONFIRMATION MODAL
+========================================================= -->
+<div id="confirmModal" class="modal hidden">
+    <div class="modal-card confirm-card">
+        <h3 id="confirmTitle">Confirm Action</h3>
+        <p id="confirmMessage">Are you sure you want to proceed?</p>
+        <div class="confirm-actions">
+            <button id="confirmCancelBtn" class="secondary-btn">Cancel</button>
+            <button id="confirmProceedBtn" class="primary-btn">Confirm</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- =========================================================
+     TOAST NOTIFICATION CONTAINER
+========================================================= -->
+<div id="toast" class="toast"></div>
+
+
+<!-- APP LOGIC -->
 <script src="script.js"></script>
 
 </body>
